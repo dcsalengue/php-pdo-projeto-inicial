@@ -18,8 +18,8 @@ class Student
 
     public function defineId(int $id): void
     {
-        if (!is_null(value: $this->id)) {
-            throw new \DomainException(message: 'Você só pode definir o ID uma vez');
+        if (!is_null($this->id)) {
+            throw new \DomainException('Você só pode definir o ID uma vez');
         }
 
         $this->id = $id;
@@ -35,15 +35,14 @@ class Student
         return $this->name;
     }
 
-    public function birthDate(): \DateTimeInterface
-    {
-        return $this->birthDate;
-    }
-
-
     public function changeName(string $newName): void
     {
         $this->name = $newName;
+    }
+
+    public function birthDate(): \DateTimeInterface
+    {
+        return $this->birthDate;
     }
 
     public function age(): int
